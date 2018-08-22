@@ -1,0 +1,17 @@
+master:
+  image: postgres:latest
+  ports:
+    - "0.0.0.0:5432:5432"
+  volumes:
+    - ./init-master.sh:/docker-entrypoint-initdb.d/init.sh
+    - .:/tmp/postgresql:ro
+
+#slave:
+#  image: postgres:latest
+#  ports:
+#    - "5433:5432"
+#  volumes:
+#    - ./init-slave.sh:/docker-entrypoint-initdb.d/init.sh
+#    - .:/tmp/postgresql
+#  links:
+#  - master
